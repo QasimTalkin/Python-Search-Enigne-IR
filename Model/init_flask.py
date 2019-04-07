@@ -15,7 +15,7 @@ def hello():
 @app.route('/receiver', methods = ['POST'])
 def worker():
 	# read json + reply
-	data = request.get_json()
+	data = request.get_json(force=True)
 	result = ''
 
 	for item in data:
@@ -27,6 +27,7 @@ def worker():
 			result += make + ' -- That is only an average manufacturer\n'
 
 	return result
+
 
 if __name__ == "__main__":
 	app.run()
