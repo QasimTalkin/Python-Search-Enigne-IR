@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 
 Test here
+.vscode
