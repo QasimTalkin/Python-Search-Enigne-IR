@@ -18,12 +18,13 @@ def stemming(obj):
     return set([stem.stem(words).lower() for words in obj])
 
 def dict_build():
+    print("------------Building Dictionary------------")
     #build dic from Uottawa an reuters json Corpus 
     #   *Full text, Altered Text, Stemmed, stopwords removal, normalized 
 #Acess corpus 
-    reuters_data = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Pre_Processing/reuters_corpus.json"
-    uottawa_data = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Pre_Processing/uottawa_corpus.json"
-    corpus_collection = [reuters_data, uottawa_data]
+    uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Pre_Processing/uottawa_corpus.json"
+    reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Pre_Processing/reuters_corpus.json"
+    corpus_collection = [reuters_json, uottawa_json ]
     #corpus_collection = ["reuters_corpus.json", "uottawa_corpus.json"]
 #Dictionary Json Structure 
     dict = {
@@ -64,6 +65,6 @@ def dict_build():
         with open('dictionary.json', 'w') as outfile:
             my_dict_lists = {k: list(v) for (k, v) in dict.items()}
             json.dump(my_dict_lists, outfile, ensure_ascii=False, indent=4)
-
+    print("------------Done------------")
 
 dict_build()

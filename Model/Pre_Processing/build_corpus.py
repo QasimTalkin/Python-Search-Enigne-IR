@@ -39,7 +39,7 @@ class ReutersPP(cpp):
 #Create Snippet
             snippet = tokenize_sentence(description.strip())[0] if description is not None else "No snippet"
 #Document
-            document = self.Document(f'{files}-article #{docID}', title, description.strip() if description is not None else 'No Description', snippet, topic) 
+            document = self.Document(f'{files}-#{docID}', title, description.strip() if description is not None else 'No Description', snippet, topic) 
             self.document_list.append(document)
 #Dictionary 
 # >>> d = p._asdict()                 # convert to a dictionary
@@ -79,7 +79,7 @@ class UottawaPP(cpp):
 #Snippet
             snippet = tokenize_sentence(description.text.strip())[0] if description is not None else ''
 #Document 
-            document = self.Document(f'CSI={docID}', re.sub('\(.*?\)', '', title), description.text.strip() if description is not None else '', snippet, "Uottawa Courses")
+            document = self.Document(f'CSI-{docID}', re.sub('\(.*?\)', '', title), description.text.strip() if description is not None else '', snippet, "Uottawa Courses")
             self.document_list.append(document)
 
         my_dict = [document_list._asdict() for document_list in self.document_list]
