@@ -2,8 +2,8 @@
 <html lang="en" >
 <head>
 
-  <link rel="stylesheet" type="=text/css" href="{{ url_for('static', filename='style20.css') }}">
-  <script type="text/javascript" src="{{ url_for('static', filename='jscript6.js') }}"></script>
+  <link rel="stylesheet" type="=text/css" href="{{ url_for('static', filename='style30.css') }}">
+  <link rel="stylesheet" type="=text/css" href="{{ url_for('static', filename='drop9.css') }}">
   <meta charset="UTF-8">
   <title>Final IR</title>  
 
@@ -52,6 +52,26 @@
         </label>
       </div>
   </div>
+  <div class="drop">
+      <div class="option active placeholder" data-value="placeholder">
+        Select The Text Model
+      </div>
+      <div class="option" data-value="fullText">
+        Full Text
+      </div>
+      <div class="option" data-value="alteredText">
+        Altered Text
+      </div>
+      <div class="option" data-value="stemmedText">
+        Stemmed Text
+      </div>
+      <div class="option" data-value="stopWord">
+        Stop Word Removal
+      </div>
+      <div class="option" data-value="normalized"> 
+        Normalized Text 
+      </div>
+  </div>
  </div >
 
 
@@ -66,10 +86,9 @@
     <path d="M 4 4 L 4 5 L 4 27 L 4 28 L 5 28 L 27 28 L 28 28 L 28 27 L 28 5 L 28 4 L 27 4 L 5 4 L 4 4 z M 6 6 L 26 6 L 26 26 L 6 26 L 6 6 z M 16 8.40625 L 13.6875 13.59375 L 8 14.1875 L 12.3125 18 L 11.09375 23.59375 L 16 20.6875 L 20.90625 23.59375 L 19.6875 18 L 24 14.1875 L 18.3125 13.59375 L 16 8.40625 z M 16 13.3125 L 16.5 14.40625 L 17 15.5 L 18.1875 15.59375 L 19.40625 15.6875 L 18.5 16.5 L 17.59375 17.3125 L 17.8125 18.40625 L 18.09375 19.59375 L 17 19 L 16 18.40625 L 15 19 L 14 19.59375 L 14.3125 18.40625 L 14.5 17.3125 L 13.59375 16.5 L 12.6875 15.6875 L 13.90625 15.59375 L 15.09375 15.5 L 15.59375 14.40625 L 16 13.3125 z" />
   </symbol>
 </svg>
-
-
-
 <script  type="text/javascript" > </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='drop.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='jscript27.js') }}"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ class ReutersPP(cpp):
         self.rDataSet = os.path.join(os.getcwd(), "dataset")
         #ID, <TITLE>, <BODY>, <TOPICS>
 
-    
+   
 #Preprocesses reuters: 
 #    * Acessing raw files from the current working directory 
 #    * Scraping it using beautiful soup

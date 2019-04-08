@@ -1,4 +1,3 @@
-
 var cars = [
 	{ "make":"Porsche", "model":"911S" },
 	{ "make":"Mercedes-Benz", "model":"220SE" },
@@ -6,7 +5,7 @@ var cars = [
 ];
 
 window.onload = function() {
-	// setup the button click
+// drop down
 	document.getElementById("theButton").onclick = function() {
 		alert("Hello! !");
 		doWork()
@@ -25,9 +24,11 @@ function doWork() {
 	// stop link reloading the page
  event.preventDefault();
 }
-
+//SEARCH BAR
 $('.search-input').focus(function(){
 	$(this).parent().addClass('focus');
   }).blur(function(){
 	$(this).parent().removeClass('focus');
   })
+
+//Drop down options
