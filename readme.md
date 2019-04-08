@@ -9,11 +9,14 @@ here "search_ve" is my virtual environment.
 ### Install project dependencies
 >$pip install -r requirements.txt
 
+### Building corpus. 
+from Model/Pre_processing Run 
+>python build_corpus.py 
 
 
-
-
-
+### Dictionary Building 
+from Model/Dictionary/ Run
+> python build_dict.py
 
 
 
