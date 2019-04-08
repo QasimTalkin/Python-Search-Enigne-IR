@@ -4,7 +4,7 @@ import requests, json, re, os
 from nltk import sent_tokenize 
 def tokenize_sentence(text):
     return sent_tokenize(text)
-
+#----------------reuters-----------------#
 class ReutersPP(cpp):
     def __init__(self):
         super().__init__()
@@ -35,7 +35,7 @@ class ReutersPP(cpp):
 #Description 
             description = article.find('body').text if article.find('body') is not None  else "No Body"
 #Topic
-            topic = article.find('topic').text if article.find('topic') is not None  else "No Topic"
+            topic = article.find('topic').text if article.find('topic') is not None  else "Reuters Article"
 #Create Snippet
             snippet = tokenize_sentence(description.strip())[0] if description is not None else "No snippet"
 #Document
@@ -47,20 +47,54 @@ class ReutersPP(cpp):
 #   11
 
         my_dict = [document_list._asdict() for document_list in self.document_list]        
-
-
         with open('reuters_corpus.json', 'w') as outfile:
             json.dump(my_dict, outfile, ensure_ascii=False, indent=5)
 
-def setupcorpus():
+
+#----------------uottawa-----------------
+
+class UottawaPP(cpp):
+    def __init__(self):
+        super().__init__()
+        self.url = 'https://catalogue.uottawa.ca/en/courses/csi/'
+        #docID, title, description, snippet
+    def corpus_pp(self):
+#Preprocesses uottawa: 
+#    * scarpinf from https://catalogue.uottawa.ca/en/courses/csi/
+#    * Applying beautiful soup
+#    * Storing it in NamedTuples from CorpusPP
+#    * Output it in Json 
+#    * Creating dictionary list
+        uottawaCorp = requests.get(self.url)
+        bs = bs4(uottawaCorp.text, "html.parser")
+        courses = bs.find_all('div', attrs = {'class': 'courseblock'})
+#Enumerate allows us to loop over something and have an automatic counter.
+#docID -> article number starting with 1
+#Find title body topic create snippet
+        for docID, course in enumerate(courses, 1):
+#Title
+            title = course.find('p', attrs = {'class':'courseblocktitle'}).text
+#Description
+            description = course.find('p', attrs = {'class' :'courseblockdesc'})
+#Snippet
+            snippet = tokenize_sentence(description.text.strip())[0] if description is not None else ''
+#Document 
+            document = self.Document(f'CSI={docID}', re.sub('\(.*?\)', '', title), description.text.strip() if description is not None else '', snippet, "Uottawa Courses")
+            self.document_list.append(document)
+
+        my_dict = [document_list._asdict() for document_list in self.document_list]
+        with open ('uottawa_corpus.json', 'w') as outfile:
+            json.dump(my_dict, outfile, ensure_ascii=False, indent=5)
+#---------------build--------------------
+def setup_reuters_corpus():
     print("-----Processing Reuters------")
     reutersPrep = ReutersPP()
     reutersPrep.corpus_pp()
     print("------------Done-------------")
-
+def setup_uottawa_corpus():
     print("-----Processing Uottawa------")
     uottawaPrep = UottawaPP()
-    uottawaPrep .corpus_pp()
+    uottawaPrep.corpus_pp()
     print("------------Done-------------")
-
-#setupcorpus()
+setup_reuters_corpus()
+setup_uottawa_corpus()

@@ -1,61 +1,21 @@
-from .PreprocessingBase import PreprocessingBase
-from bs4 import BeautifulSoup
-import requests
-import json
-import re
-from utilities import tokenize_sentence
+from abc import ABC, abstractmethod
+from collections import namedtuple
 
-# Module 1 - Preprocessing
+# Abstract Base Classes (ABCs). 
+# Both our corpus will override corpus_preprocess abstract method
+#we will use namedtuple() Factory Function for Tuples with Named Fields
+#Named tuples assign meaning to each position in a tuple and allow
+#for more readable, self-documenting code. They can be used wherever 
+#regular tuples are used, and they add the ability to access fields by name instead 
+#of position index.
+#Documents.namedtuple(typename, field_names, *, rename=False, defaults=None, module=None)
 
-
-class UOPreprocessing(PreprocessingBase):
-    """Preprocesses the UO course collection by making an HTTP request, and then scraping it using beautiful soup
-
-    The webscraping code was modfied from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe
-    """
-
+class CorpusPP(ABC):
     def __init__(self):
+        self.Document = namedtuple(
+            "Document", "doc_id title description snippet topic")
+        self.document_list = []
         super().__init__()
-        self.url = 'https://catalogue.uottawa.ca/en/courses/csi/'
-
-    def preprocess_collections(self):
-        """Preprocessing the UO collection
-
-            Process goes as follows:
-            - Makes a request to the UO Course site
-            - Initialize Beautfiul Soup
-            - Use beautiful Scrape the "course block" sections that make up each course
-            - Save all scraped information in a NamedTuple described in PreprocessingBase.py
-            - Transform list of tuples into list of dicts
-            - Write list into a json file
-        """
-        try:
-            results = requests.get(self.url)
-            results.raise_for_status()
-        except requests.exceptions.RequestException as r:
-            print(r)
-            print(f"Can't make get request with this URL: {self.url}")
-            raise
-
-        soup = BeautifulSoup(results.text, 'html.parser')
-        courseblocks = soup.find_all('div', attrs={'class': 'courseblock'})
-
-        for index, courseblock in enumerate(courseblocks, 1):
-            course_title = courseblock.find(
-                'p', attrs={'class': 'courseblocktitle'}).text
-            course_description = courseblock.find(
-                'p', attrs={'class': 'courseblockdesc'})
-            course_excerpt = tokenize_sentence(course_description.text.strip())[
-                0] if course_description is not None else ''
-            new_document = self.Document(
-                f'CSI-{index}', re.sub('\(.*?\)', '', course_title), course_description.text.strip() if course_description is not None else '', course_excerpt, "UO Courses")
-            self.uniform_collections.append(new_document)
-
-        # Since an error will be raised when I try to write the Document NamedTuples to the json file
-        # we use the _asdict() method to transform each tuple into a dict
-        # Modified from https://stackoverflow.com/questions/5906831/serializing-a-python-namedtuple-to-json, from benselme's answer
-        uniform_dicts = [uniform_collection._asdict()
-                         for uniform_collection in self.uniform_collections]
-
-        with open('corpus.json', 'w') as outfile:
-            json.dump(uniform_dicts, outfile, ensure_ascii=False, indent=4)
+    @abstractmethod
+    def corpus_pp(self):
+        pass
