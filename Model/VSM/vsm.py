@@ -69,7 +69,7 @@ class VSM():
 def idf_calc(complete_set, inverted_index):
     total_docs = len(complete_set)
     return {word: math.log10(total_docs / len(docs))
-            for word, docs in inverted_index.items()}
+            for word, docs in inverted_index.items()} 
 #Word over document frequency 
 def tf_idf_calc(complete_set, inverted_index, idf_index):
     tf_idf = defaultdict(lambda: defaultdict(int))

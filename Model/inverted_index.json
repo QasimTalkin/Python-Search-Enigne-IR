@@ -1,0 +1,376 @@
+{
+    "est": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "first": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "and": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 3}"
+    ],
+    "occurs": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "requirements": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "following": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "assembled": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "retaken": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "comprehensive": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "doctorat": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "areas": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "typically": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "two": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "in": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "may": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "course": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 3}"
+    ],
+    "i.e.": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 0}"
+    ],
+    "topics": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "written": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "with": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 5}"
+    ],
+    "is": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "terms": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "if": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "la": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "comp": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "committee": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "général": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "cours": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "équivalent": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "a": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "major": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "must": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 3}"
+    ],
+    "least": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "place": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "at": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 3}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "the": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 4}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 18}"
+    ],
+    "minor": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "be": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 3}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "one": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "for": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "examination": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 3}"
+    ],
+    "exam": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "approve": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "conditionally": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "time": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "extra": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "within": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "equivalent": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "oral": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "registration": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "ce": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "most": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "or": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "passed": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 3}"
+    ],
+    "à": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "program": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "elements": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "to": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 3}"
+    ],
+    "initial": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "de": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "an": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}",
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "this": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "unconditionally": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "failed": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 2}"
+    ],
+    "take": [
+        "{\"doc_id\": \"CSI=173\", \"frequency\": 1}"
+    ],
+    "been": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "has": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "set": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "expiring": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "trading": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "symbol": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "'s": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "began": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "ticker": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "symbols": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "index": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 4}"
+    ],
+    "guage": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "long-term": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 4}"
+    ],
+    "nation": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "carry": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "equity": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "holdings": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "strikes": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "strike": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "have": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "stike": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "conflicting": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "will": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "listings": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "avoid": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "introduced": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "said": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 4}"
+    ],
+    "expiration": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "\u0003": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 0}"
+    ],
+    "price": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "expirations": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "on": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ],
+    "begin": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "up": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "point": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "added": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "institutions": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "largest": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "option": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 3}"
+    ],
+    "represent": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "intervals": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "of": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 6}"
+    ],
+    "codes": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "three": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "explained": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "exchange": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 3}"
+    ],
+    "years": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "it": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 4}"
+    ],
+    "core": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "options": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 4}"
+    ],
+    "traded": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "by": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "new": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "third": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 1}"
+    ],
+    "prices": [
+        "{\"doc_id\": \"reut2-021.sgm-#578\", \"frequency\": 2}"
+    ]
+}

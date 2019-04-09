@@ -25,12 +25,10 @@ def sentence_tokenization(obj):
     return stopwords_removal(obj)
 def word_tokenization(obj):
     return wt(obj)
-#building inverted index
-uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/uottawa_corpus.json"
-reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/final_reuters_corpus.json"
-dict_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/final_dict.json"  
-
-
+#building inverted index /Users/Qasim/Desktop/Dev/WebDev/Projects /Js Python/Python-Search-Enigne-IR/
+uottawa_json = "/Users/Qasim/Desktop/Dev/WebDev/Projects /Js Python/Python-Search-Enigne-IR/Model/Json_data/uottawa_corpus.json"
+reuters_json = "/Users/Qasim/Desktop/Dev/WebDev/Projects /Js Python/Python-Search-Enigne-IR/Model/Json_data/final_reuters_corpus.json"
+dict_json = "/Users/Qasim/Desktop/Dev/WebDev/Projects /Js Python/Python-Search-Enigne-IR/Model/Json_data/final_dict.json"  
 
 class BuildII():
 #build inverted index from dictionary files we have inverted index for each 
@@ -39,9 +37,6 @@ class BuildII():
     
 #loading uottawa json 
     def __init__(self):
-        uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Json_data/uottawa_corpus.json"
-        reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Json_data/reuters_corpus.json"
-        dict_json = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Json_data/dictionary.json"  
 
         with open(uottawa_json) as corpus:
             self.uo_corpus = json.load(corpus)
@@ -73,9 +68,10 @@ class BuildII():
                     docCount = DocCount(doc['doc_id'], count)
                     inv_index[word].append(json.dumps(docCount.__dict__))
 
-        with open('inverted_index.json', 'w') as outfile:
-            json.dump(inv_index, outfile, ensure_ascii=False, indent=4)
-
+        #with open('inverted_index.json', 'w') as outfile:
+        #    json.dump(inv_index, outfile, ensure_ascii=False, indent=4)
+        print(inv_index)
+        return inv_index
     def fill_inv_index(self, wordlist):
 
         inv_index_portion = defaultdict(list)

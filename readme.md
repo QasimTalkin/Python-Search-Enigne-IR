@@ -18,8 +18,9 @@ from Model/Pre_processing Run
 from Model/Dictionary/ Run
 > python build_dict.py
 
-
-
+### Inverted Index
+from Model/InvertedIndex/build_ii.py run
+>python build_ii.py
 
 
 
