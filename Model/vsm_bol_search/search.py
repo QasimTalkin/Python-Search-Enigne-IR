@@ -114,6 +114,9 @@ index = index_docs(DATA, 'description', 'title', 'doc_id', 'snippet', 'topic')
 #js = open('search_index.json').read()
 #index = json.loads(js)
 
+
+
+#sample Queries
 result = query(index, 'China India')
 print(f'{result} Results \n')
 #query(index, 'China')
