@@ -2,6 +2,8 @@ from corpusPP import CorpusPP as cpp
 from bs4 import BeautifulSoup as bs4
 import requests, json, re, os
 from nltk import sent_tokenize 
+from timeit import default_timer as timer
+
 def tokenize_sentence(text):
     return sent_tokenize(text)
 #----------------reuters-----------------#
@@ -11,7 +13,6 @@ class ReutersPP(cpp):
         self.rDataSet = os.path.join(os.getcwd(), "dataset")
         #ID, <TITLE>, <BODY>, <TOPICS>
 
-   
 #Preprocesses reuters: 
 #    * Acessing raw files from the current working directory 
 #    * Scraping it using beautiful soup
@@ -20,8 +21,9 @@ class ReutersPP(cpp):
 #    * Creating dictionary list
 
     def corpus_pp(self):
+        start = timer()
         for files in os.listdir(self.rDataSet):
-            with open(os.path.join(self.rDataSet, files), 'r', encoding='windows-1252') as reuterdoc:
+            with open(os.path.join(self.rDataSet, files), 'rb') as reuterdoc:
                 data = reuterdoc.read()
                 bs = bs4(data, "html.parser")
 #get ones with "reuters" tag
@@ -29,27 +31,27 @@ class ReutersPP(cpp):
 #Enumerate allows us to loop over something and have an automatic counter.
 #docID -> article number starting with 1
 #Find title body topic create snippet
-        for docID, article in enumerate(articles, 1):
+                for docID, article in enumerate(articles, 1):
 #Title 
-            title = article.find('title').text if article.find('title') is not None else ""
+                    title = article.find('title').text if article.find('title') is not None else ""
 #Description 
-            description = article.find('body').text if article.find('body') is not None  else ""
+                    description = article.find('body').text if article.find('body') is not None  else ""
 #Create Snippet
-            snippet = tokenize_sentence(description.strip())[0] if description is not None and description != "" else ''
+                    snippet = tokenize_sentence(description.strip())[0] if description is not None and description != "" else ''
 #Topic
-            topic = article.find('topic').text if article.find('topic') is not None  else ""
+                    topic = article.find('topic').text if article.find('topic') is not None  else ""
 #Document
-            document = self.Document(f'{files}-#{docID}', title, description.strip() if description is not None else '', snippet, topic) 
-            self.document_list.append(document)
-#Dictionary 
+                    document = self.Document(f'{files}-#{docID}', title, description.strip() if description is not None else '', snippet, topic) 
+                    self.document_list.append(document)
+    #Dictionary 
 # >>> d = p._asdict()                 # convert to a dictionary
 #    >>> d['x']
 #   11
-
         my_dict = [document_list._asdict() for document_list in self.document_list]        
         with open('reuters_corpus.json', 'w') as outfile:
             json.dump(my_dict, outfile, ensure_ascii=False, indent=5)
-
+        end = timer()
+        print(f"Reuters PP took {end - start} seconds")
 
 #----------------uottawa-----------------
 
@@ -59,6 +61,7 @@ class UottawaPP(cpp):
         self.url = 'https://catalogue.uottawa.ca/en/courses/csi/'
         #docID, title, description, snippet
     def corpus_pp(self):
+        start = timer()
 #Preprocesses uottawa: 
 #    * scarpinf from https://catalogue.uottawa.ca/en/courses/csi/
 #    * Applying beautiful soup
@@ -84,7 +87,9 @@ class UottawaPP(cpp):
 
         my_dict = [document_list._asdict() for document_list in self.document_list]
         with open ('uottawa_corpus.json', 'w') as outfile:
-            json.dump(my_dict, outfile, ensure_ascii=False, indent=5)
+            json.dump(my_dict, outfile, ensure_ascii=False, indent=4)
+        end = timer()
+        print(f"uOttawa PP took {end - start} seconds")
 #---------------build--------------------
 def setup_reuters_corpus():
     print("-----Processing Reuters------")
