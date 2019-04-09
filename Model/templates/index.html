@@ -13,6 +13,21 @@
 <div id="json_wrap">
   <a href="" id="theButton">Click  to post request onto the server</a>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="area" >
     <ul class="circles">
                      <li></li>
@@ -27,9 +42,12 @@
                      <li></li>
  </ul>
  <div id="wrap">
-    <form action="" autocomplete="on">
-    <input id="search_q" name="search" type="text" placeholder="Type your query here ?"><input id="search_submit" value="search" type="submit">
-    </form>
+    <form action="" method="post" autocapitalize="on">
+
+<div class="input text">{{ form.SearchQuery }}</div>
+<div class="input submit">
+<input type="submit" value="Submit"></div>
+</form>
   </div>
   <div class="search-option">
       <div>

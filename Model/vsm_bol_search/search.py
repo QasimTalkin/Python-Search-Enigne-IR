@@ -4,9 +4,33 @@ import os
 import json
 
 #loading data! 
-complete_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/complete_corpus.json"
+#complete_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/complete_corpus.json"
+complete_json = '/Users/Qasim/Desktop/Dev/WebDev/Projects /Js Python/Python-Search-Enigne-IR/Model/Json_data/complete_corpus.json'
 with open(complete_json) as corpus:
             DATA = json.load(corpus)
+
+
+
+class Search():
+    def __init__(self):
+        self.index = index_docs(DATA, 'description', 'title', 'doc_id', 'snippet', 'topic')
+
+
+
+    def query(self, query, operator='AND', fields=None):
+        print('Search for "%s" using %s in %s' % (bold(query), bold(operator), fields or 'all fields'))
+        print('-'*80)
+        ids = search(self.index, query, operator, fields)
+        docID_List = []
+        results_count = 0
+        for docID, score in ids.most_common():
+            document_id = (DATA[docID]['doc_id'])
+            #creating result list to acess corpus!
+            scorelist = f'{document_id} : {score}'
+            docID_List.append(scorelist)
+            results_count= results_count + 1
+
+        return docID_List
 
             
 def bold(txt):
@@ -85,27 +109,14 @@ def search(index, query, operator='AND', fields=None):
     combine = COMBINE[operator]
     return combine(*(search_in_fields(index, query, fields or index.keys())))
 
-def query(index, query, operator='AND', fields=None):
-    print('Search for "%s" using %s in %s' % (bold(query), bold(operator), fields or 'all fields'))
-    print('-'*80)
-    ids = search(index, query, operator, fields)
-    docID_List = []
-    results_count = 0
-    for docID, score in ids.most_common():
-        document_id = (DATA[docID]['doc_id'])
-        #creating result list to acess corpus!
-        scorelist = f'{document_id} : {score}'
-        docID_List.append(scorelist)
-        results_count= results_count + 1
 
-    return docID_List
 
 
 #with open('scores.txt', 'r') as f:
     #index = json.load(f)
 
 #CREATING defaultdict
-index = index_docs(DATA, 'description', 'title', 'doc_id', 'snippet', 'topic')
+
 #with open('scores.txt', 'w') as f:
     #json.dump(index, f)
 #search_file = open("search_index.txt","w")
@@ -117,8 +128,8 @@ index = index_docs(DATA, 'description', 'title', 'doc_id', 'snippet', 'topic')
 
 
 #sample Queries
-result = query(index, 'China India')
-print(f'{result} Results \n')
+#result = query(index, 'China India')
+#print(f'{result} Results \n')
 #query(index, 'China')
 #query(index, 'Python')
 #query(index, 'Python', fields=['title'])

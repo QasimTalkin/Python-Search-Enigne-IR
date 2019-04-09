@@ -1,0 +1,10 @@
+<!-- The result page that opens when you click on a Title link in the Results page -->
+<!-- Modified from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates -->
+
+{% extends "base.html" %}  {% block content %}
+<h2> Result</h2>
+<h3>{{ result.title }}</h3>
+<p>
+  {{ result.description }}
+</p>
+{% endblock %}

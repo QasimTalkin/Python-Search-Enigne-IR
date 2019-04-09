@@ -1,0 +1,36 @@
+<!-- The search page that opens when you first start the system. Includes a search bar for your query, as well as radio options for choosing between search models, and different modes of the dictionary -->
+<!-- Modified from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates 
+    And https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms
+-->
+
+
+{% extends "index.html" %} {% block content %}
+<h1>CSI4107 Vanilla Search</h1>
+<form action="" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  <p>
+    {{ form.search.label }}<br />
+    {{ form.search(size=100) }} <br />
+    <p>
+        Select your model:
+        {% for model in form.models %}
+        <tr>
+            <td>{{ model.label }}</td>
+        <td>{{ model }}</td>
+        </tr>
+        {% endfor %}
+    </p>
+    <p>
+        Select the dictionary mode (will affect your query as well):
+        {% for mode in form.dictionary_modes %}
+        <tr>
+            <td>{{ mode.label }}</td>
+        <td>{{ mode }}</td>
+        </tr>
+        {% endfor %}
+    </p>
+  </p>
+
+  <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
