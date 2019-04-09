@@ -26,24 +26,31 @@ def sentence_tokenization(obj):
 def word_tokenization(obj):
     return wt(obj)
 #building inverted index
-def build_inverted_index():
-    print("------------Building Inverted Index------------")
+uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/uottawa_corpus.json"
+reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/final_reuters_corpus.json"
+dict_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/final_dict.json"  
 
+
+
+class BuildII():
 #build inverted index from dictionary files we have inverted index for each 
 #Dictionary like Full text, Altered Text, Stemmed, stopwords removal, normalized 
 #We will used both our corpus files and dictionary corpus to build the inverted index!
-    uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Pre_Processing/uottawa_corpus.json"
-    reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Pre_Processing/reuters_corpus.json"
-    dict_json = os.path.dirname(os.path.join(os.getcwd()))+"/Dictionary/dictionary.json"  
+    
 #loading uottawa json 
-    with open(uottawa_json) as corpus:
-        uo_corpus = json.load(corpus)
-#loading reuters json 
-    with open(reuters_json) as corpus:
-        reuters_corpus = json.load(corpus)
-#loading dictionary json 
-    with open(dict_json) as dictionary:
-        dict_corpus = json.load(dictionary)
+    def __init__(self):
+        uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Json_data/uottawa_corpus.json"
+        reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Json_data/reuters_corpus.json"
+        dict_json = os.path.dirname(os.path.join(os.getcwd()))+"/Model/Json_data/dictionary.json"  
+
+        with open(uottawa_json) as corpus:
+            self.uo_corpus = json.load(corpus)
+    #loading reuters json 
+        with open(reuters_json) as corpus:
+            self.reuters_corpus = json.load(corpus)
+    #loading dictionary json 
+        with open(dict_json) as dictionary:
+            self.dict_corpus = json.load(dictionary)
 #Using list as the default_factory, it is easy to group a sequence of key-value pairs into a dictionary of lists:
 #   >>> s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
 #   >>> d = defaultdict(list)
@@ -52,27 +59,43 @@ def build_inverted_index():
 #   ...
 #   >>> d.items()
 #   [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
-    inv_index = defaultdict(list)
-    for index, corpus in enumerate ([uo_corpus, reuters_corpus]):
-        for doc in corpus:
-            bow = set(to_lower(word)for word in word_tokenization(doc['title']) if word not in string.punctuation and not any(i.isdigit() for i in word) and word != "")
-            bow |= set(to_lower(word)for word in word_tokenization(doc['description']) if word not in string.punctuation and not any(i.isdigit() for i in word) and word != "")
+    def make_inverted_index(self):
+        inv_index = defaultdict(list)
+        for index, corpus in enumerate ([self.uo_corpus, self.reuters_corpus]):
+            for doc in corpus:
+                bow = set(to_lower(word)for word in word_tokenization(doc['title']) if word not in string.punctuation and not any(i.isdigit() for i in word) and word != "")
+                bow |= set(to_lower(word)for word in word_tokenization(doc['description']) if word not in string.punctuation and not any(i.isdigit() for i in word) and word != "")
 #we count bag of words!        
-        for word in bow:
-            if word_in(doc['description'], word) or word_in(doc['title'], word):
-                count = sum(1 for _ in re.finditer(r'\b%s\b' %
-                                                    re.escape(to_lower(word)), to_lower(doc['description']))) + sum(1 for _ in re.finditer(r'\b%s\b' %re.escape(to_lower(word)), to_lower(doc['title'])))
-                docCount = DocCount(doc['doc_id'], count)
-                inv_index[word].append(json.dumps(docCount.__dict__))
+            for word in bow:
+                if word_in(doc['description'], word) or word_in(doc['title'], word):
+                    count = sum(1 for _ in re.finditer(r'\b%s\b' %
+                                                        re.escape(to_lower(word)), to_lower(doc['description']))) + sum(1 for _ in re.finditer(r'\b%s\b' %re.escape(to_lower(word)), to_lower(doc['title'])))
+                    docCount = DocCount(doc['doc_id'], count)
+                    inv_index[word].append(json.dumps(docCount.__dict__))
 
-    with open('inverted_index.json', 'w') as outfile:
-        json.dump(inv_index, outfile, ensure_ascii=False, indent=4)
-    print("------------Done------------")
+        with open('inverted_index.json', 'w') as outfile:
+            json.dump(inv_index, outfile, ensure_ascii=False, indent=4)
 
+    def fill_inv_index(self, wordlist):
+
+        inv_index_portion = defaultdict(list)
+
+        for word in wordlist:
+            for index, corpus in enumerate([self.uo_corpus, self.reuters_corpus]):
+                print(f"reading - corpus #{index}")
+                for document in corpus:
+                    if word_in(document['fulltext'], word) or word_in(document['title'], word):
+                        count = sum(1 for _ in re.finditer(r'\b%s\b' %
+                                                           re.escape(to_lower(word)), to_lower(document['fulltext']))) + sum(1 for _ in re.finditer(r'\b%s\b' %
+                                                                                                                                                                      re.escape(to_lower(word)), to_lower(document['title'])))
+                        docCount = DocCount(document['doc_id'], count)
+                        inv_index_portion[word].append(docCount)
+        return inv_index_portion
 
 
 def word_in(fulltext, word):
     return word in fulltext
+    print("------------Done------------")
 class DocCount():
     def __init__(self, doc_id, frequency):
         self.doc_id = doc_id
@@ -83,5 +106,3 @@ class DocCount():
 
     def __repr__(self):
         return str(self.__dict__)
-
-build_inverted_index()

@@ -21,7 +21,7 @@ class ReutersPP(cpp):
 
     def corpus_pp(self):
         for files in os.listdir(self.rDataSet):
-            with open(os.path.join(self.rDataSet, files), 'rb') as reuterdoc:
+            with open(os.path.join(self.rDataSet, files), 'r', encoding='windows-1252') as reuterdoc:
                 data = reuterdoc.read()
                 bs = bs4(data, "html.parser")
 #get ones with "reuters" tag
@@ -31,15 +31,15 @@ class ReutersPP(cpp):
 #Find title body topic create snippet
         for docID, article in enumerate(articles, 1):
 #Title 
-            title = article.find('title').text if article.find('title') is not None else "No Title"
+            title = article.find('title').text if article.find('title') is not None else ""
 #Description 
-            description = article.find('body').text if article.find('body') is not None  else "No Body"
-#Topic
-            topic = article.find('topic').text if article.find('topic') is not None  else "Reuters Article"
+            description = article.find('body').text if article.find('body') is not None  else ""
 #Create Snippet
-            snippet = tokenize_sentence(description.strip())[0] if description is not None else "No snippet"
+            snippet = tokenize_sentence(description.strip())[0] if description is not None and description != "" else ''
+#Topic
+            topic = article.find('topic').text if article.find('topic') is not None  else ""
 #Document
-            document = self.Document(f'{files}-#{docID}', title, description.strip() if description is not None else 'No Description', snippet, topic) 
+            document = self.Document(f'{files}-#{docID}', title, description.strip() if description is not None else '', snippet, topic) 
             self.document_list.append(document)
 #Dictionary 
 # >>> d = p._asdict()                 # convert to a dictionary

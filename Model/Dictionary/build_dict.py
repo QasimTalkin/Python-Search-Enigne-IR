@@ -22,10 +22,9 @@ def dict_build():
     #build dic from Uottawa an reuters json Corpus 
     #   *Full text, Altered Text, Stemmed, stopwords removal, normalized 
 #Acess corpus 
-    uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Pre_Processing/uottawa_corpus.json"
-    reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Pre_Processing/reuters_corpus.json"
-    corpus_collection = [reuters_json, uottawa_json ]
-    #corpus_collection = ["reuters_corpus.json", "uottawa_corpus.json"]
+    uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/uottawa_corpus.json"
+    reuters_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/final_reuters_corpus.json"
+    corpus_collection = [uottawa_json, reuters_json ]#corpus_collection = ["reuters_corpus.json", "uottawa_corpus.json"]
 #Dictionary Json Structure 
     dict = {
             'fullText': set(),
