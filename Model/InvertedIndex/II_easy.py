@@ -17,7 +17,7 @@ def stemming ():
 def tf_idf_vector():
 # Starting with the CountVectorizer/TfidfTransformer approach...
     cvec = CountVectorizer(stop_words='english', min_df=1, max_df=.5, ngram_range=(1,2))
-    cvec
+
 
 def main():
     uottawa_json = os.path.dirname(os.path.join(os.getcwd()))+"/Json_data/uottawa_corpus.json"
