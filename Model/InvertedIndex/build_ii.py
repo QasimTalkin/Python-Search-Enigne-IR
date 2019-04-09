@@ -37,7 +37,6 @@ class BuildII():
     
 #loading uottawa json 
     def __init__(self):
-
         with open(uottawa_json) as corpus:
             self.uo_corpus = json.load(corpus)
     #loading reuters json 
@@ -55,43 +54,31 @@ class BuildII():
 #   >>> d.items()
 #   [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
     def make_inverted_index(self):
+        print("------------Inverted Index------------")
         inv_index = defaultdict(list)
-        for index, corpus in enumerate ([self.uo_corpus, self.reuters_corpus]):
+        count = 0
+        for index, corpus in enumerate ([self.reuters_corpus, self.uo_corpus]):
             for doc in corpus:
                 bow = set(to_lower(word)for word in word_tokenization(doc['title']) if word not in string.punctuation and not any(i.isdigit() for i in word) and word != "")
                 bow |= set(to_lower(word)for word in word_tokenization(doc['description']) if word not in string.punctuation and not any(i.isdigit() for i in word) and word != "")
+                count=count+1
+                print("bow", count)
 #we count bag of words!        
             for word in bow:
                 if word_in(doc['description'], word) or word_in(doc['title'], word):
                     count = sum(1 for _ in re.finditer(r'\b%s\b' %
                                                         re.escape(to_lower(word)), to_lower(doc['description']))) + sum(1 for _ in re.finditer(r'\b%s\b' %re.escape(to_lower(word)), to_lower(doc['title'])))
                     docCount = DocCount(doc['doc_id'], count)
-                    inv_index[word].append(json.dumps(docCount.__dict__))
+                    inv_index[word].append(docCount)
 
         #with open('inverted_index.json', 'w') as outfile:
-        #    json.dump(inv_index, outfile, ensure_ascii=False, indent=4)
-        print(inv_index)
+            #json.dump(inv_index, outfile, ensure_ascii=False, indent=4)
+        print("------------Done------------")
         return inv_index
-    def fill_inv_index(self, wordlist):
-
-        inv_index_portion = defaultdict(list)
-
-        for word in wordlist:
-            for index, corpus in enumerate([self.uo_corpus, self.reuters_corpus]):
-                print(f"reading - corpus #{index}")
-                for document in corpus:
-                    if word_in(document['fulltext'], word) or word_in(document['title'], word):
-                        count = sum(1 for _ in re.finditer(r'\b%s\b' %
-                                                           re.escape(to_lower(word)), to_lower(document['fulltext']))) + sum(1 for _ in re.finditer(r'\b%s\b' %
-                                                                                                                                                                      re.escape(to_lower(word)), to_lower(document['title'])))
-                        docCount = DocCount(document['doc_id'], count)
-                        inv_index_portion[word].append(docCount)
-        return inv_index_portion
-
 
 def word_in(fulltext, word):
     return word in fulltext
-    print("------------Done------------")
+
 class DocCount():
     def __init__(self, doc_id, frequency):
         self.doc_id = doc_id
