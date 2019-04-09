@@ -2,6 +2,7 @@
 <!-- Modified from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates -->
 
 {% extends "base.html" %}  {% block content %}
+<link rel="stylesheet" type="=text/css" href="{{ url_for('static', filename='base2.css') }}">
 <h2> Result</h2>
 <h3>{{ result.title }}</h3>
 <p>
