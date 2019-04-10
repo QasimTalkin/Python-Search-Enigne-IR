@@ -21,6 +21,7 @@ class ReutersPP(cpp):
 #    * Creating dictionary list
 
     def corpus_pp(self):
+        print(f"-----------Reuters PP----------")
         start = timer()
         for files in os.listdir(self.rDataSet):
             with open(os.path.join(self.rDataSet, files), 'rb') as reuterdoc:
@@ -43,16 +44,28 @@ class ReutersPP(cpp):
 #Document
                     document = self.Document(f'{files}-#{docID}', title, description.strip() if description is not None else '', snippet, topic) 
                     self.document_list.append(document)
-    #Dictionary 
+#Dictionary 
 # >>> d = p._asdict()                 # convert to a dictionary
-#    >>> d['x']
+#>>> d['x']
 #   11
+
+#Reuters OutPut
         my_dict = [document_list._asdict() for document_list in self.document_list]        
-        with open('reuters_corpus.json', 'w') as outfile:
+        with open('reuters_corpus.json', 'w', encoding='utf8') as outfile:
             json.dump(my_dict, outfile, ensure_ascii=False, indent=5)
         end = timer()
         print(f"Reuters PP took {end - start} seconds")
-
+#Uottawa OutPut
+        uottawaPrep = UottawaPP()
+        self.document_list = self.document_list + uottawaPrep.corpus_pp()
+#Complete OutPut
+        print(f"-----------Complete PP----------")
+        start = timer()
+        my_dict = [document_list._asdict() for document_list in self.document_list]        
+        with open('complete_corpus.json', 'w', encoding='utf8') as outfile:
+            json.dump(my_dict, outfile, ensure_ascii=False, indent=5)
+        end = timer()
+        print(f"Complete PP took {end - start} seconds")
 #----------------uottawa-----------------
 
 class UottawaPP(cpp):
@@ -61,6 +74,7 @@ class UottawaPP(cpp):
         self.url = 'https://catalogue.uottawa.ca/en/courses/csi/'
         #docID, title, description, snippet
     def corpus_pp(self):
+        print(f"-----------Uottawa PP----------")
         start = timer()
 #Preprocesses uottawa: 
 #    * scarpinf from https://catalogue.uottawa.ca/en/courses/csi/
@@ -86,20 +100,16 @@ class UottawaPP(cpp):
             self.document_list.append(document)
 
         my_dict = [document_list._asdict() for document_list in self.document_list]
-        with open ('uottawa_corpus.json', 'w') as outfile:
-            json.dump(my_dict, outfile, ensure_ascii=False, indent=4)
+        with open ('uottawa_corpus.json', 'w', encoding='utf8') as outfile:
+            json.dump(my_dict, outfile, ensure_ascii=False, indent=5)
         end = timer()
         print(f"uOttawa PP took {end - start} seconds")
+        return self.document_list
 #---------------build--------------------
 def setup_reuters_corpus():
-    print("-----Processing Reuters------")
+    print("-----Processing Collection------")
     reutersPrep = ReutersPP()
     reutersPrep.corpus_pp()
     print("------------Done-------------")
-def setup_uottawa_corpus():
-    print("-----Processing Uottawa------")
-    uottawaPrep = UottawaPP()
-    uottawaPrep.corpus_pp()
-    print("------------Done-------------")
+
 setup_reuters_corpus()
-setup_uottawa_corpus()

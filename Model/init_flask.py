@@ -32,7 +32,6 @@ def index():
 			document_from_corpus['score'] = split_results[1]
 			final_results.append(document_from_corpus)
 			print(f'Retrived Results Doc ID -> {split_results[0]} and Score -> {split_results[1]}')
-		print(final_results)
 		return render_template('results1.html', results=final_results, model="Final Search Engine", query=SearchQuery)
 	return render_template('index.html', form=form)
 

@@ -1,0 +1,86 @@
+[
+    {
+         "doc_id": "CSI=1",
+         "title": "CSI 1306 Computing Concepts for Business ",
+         "description": "Introduction to computer-based problem solving from the perspective of the business world. Design of algorithms for solving business problems. Basics of computer programming in a modern programming language. Solving business problems using application packages including spreadsheets and databases. Basics of web design. Collaborative tools. Using open source software.",
+         "snippet": "Introduction to computer-based problem solving from the perspective of the business world.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=2",
+         "title": "CSI 1308 Introduction to Computing Concepts ",
+         "description": "Introduction to computer based problem solving for scientific applications.  Design of algorithms and algorithms descriptions.  4th generation languages. Software packages.  Structured program development.  Modular and object-oriented programming.  Program testing.",
+         "snippet": "Introduction to computer based problem solving for scientific applications.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=3",
+         "title": "CSI 1390 Introduction to Computers ",
+         "description": "Computing and computers. Problem solving and algorithm development. Introduction to programming. Use of application, communication, and database software.",
+         "snippet": "Computing and computers.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=4",
+         "title": "CSI 1706 Éléments de programmation pour la gestion ",
+         "description": "Introduction aux méthodes de résolution informatisées dans le cadre du monde des affaires. Conception d'algorithmes pour résoudre des problèmes d'affaires. Éléments de base de programmation dans un langage de programmation moderne. Résolution de problèmes d'affaires à l'aide d'applications telles que les tableurs et les bases de données. Éléments de base de la conception pour le web. Outils de collaboration. Utilisation de logiciel libre.",
+         "snippet": "Introduction aux méthodes de résolution informatisées dans le cadre du monde des affaires.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=5",
+         "title": "CSI 1708 Introduction aux concepts de l'informatique ",
+         "description": "Introduction aux méthodes de résolution de problèmes par ordinateur dans le cadre des applications scientifiques.  Conception et description des algorithmes.  Langages de 4e génération.  Logiciels. Développement de programmes modulaires, structurés et orientés objet. Tests de programmes.",
+         "snippet": "Introduction aux méthodes de résolution de problèmes par ordinateur dans le cadre des applications scientifiques.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=6",
+         "title": "CSI 1790 Introduction aux ordinateurs ",
+         "description": "Le traitement de l'information et les ordinateurs. La résolution de problèmes. Développement des algorithmes. Introduction aux concepts de la programmation. Utilisation de logiciels d'application, de communication et de bases de données.",
+         "snippet": "Le traitement de l'information et les ordinateurs.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=7",
+         "title": "CSI 2101 Discrete Structures ",
+         "description": "Discrete structures as they apply to computer science, algorithm analysis and design. Predicate logic. Review of proof techniques; application of induction to computing problems. Graph theory applications in information technology. Program correctness, preconditions, postconditions and invariants. Analysis of recursive programs using recurrence relations. Properties of integers and basic cryptographical applications.",
+         "snippet": "Discrete structures as they apply to computer science, algorithm analysis and design.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=8",
+         "title": "CSI 2110 Data Structures and Algorithms ",
+         "description": "The concept of abstract data types. Simple methods of complexity analysis. Trees. The search problem: balanced trees, binary-trees, hashing. Sorting. Graphs and simple graph algorithms: traversal, minimum spanning tree. Strings and pattern matching.",
+         "snippet": "The concept of abstract data types.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=9",
+         "title": "CSI 2120 Programming Paradigms ",
+         "description": "Presentation of the major programming paradigms: object-oriented, imperative, logic, functional. Related programming languages, their essential properties and typical applications. Programming in imperative, logic and functional languages. Influence of programming paradigms on problem solving and program design strategies. An overview of other paradigms, such as constraint-based, rule-based and event-driven programming.",
+         "snippet": "Presentation of the major programming paradigms: object-oriented, imperative, logic, functional.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=10",
+         "title": "CSI 2132 Databases I ",
+         "description": "Fundamental database concepts. Entity-Relationship modeling. Relational algebra and relational calculus. Relational databases. Database definition and manipulation using SQL. Embedded SQL. Functional dependencies and normalization. Introduction to physical database design. Design and implementation of a database application in a team project.",
+         "snippet": "Fundamental database concepts.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=11",
+         "title": "CSI 2372 Advanced Programming Concepts With C++ ",
+         "description": "Differences between C++ and Java programming.  C++ data types. Pointers and memory management.  Object oriented programming in C++. File and stream I/O.  Pre-processor macros. Templates and the Standard Template Library.  Numerical computation in C++.  Interfacing with hardware.  Engineering applications.",
+         "snippet": "Differences between C++ and Java programming.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI=12",
+         "title": "CSI 2501 Structures discrètes ",
+         "description": "Structures discrètes utilisées en informatique. Analyse et conception des algorithmes.  Logique des prédicats. Révision des techniques de preuves. Application de l'induction aux problèmes en informatique. Théorie des graphes. Applications en technologie de l'information. Justesse des programmes correction.  Pré, post conditions et invariants.  Analyse des programmes récursifs à l'aide des relations de récurrence. Propriétés des entiers et application de base et en cryptographie.",
+         "snippet": "Structures discrètes utilisées en informatique.",
+         "topic": "Uottawa Courses"
+    }
+]
