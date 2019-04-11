@@ -18,7 +18,7 @@ def expandQuery(query,collection,flagArray):
     for token in tokenList: 
         if(not(token == '') or not(token== ' ')):
             string = string + ' ' +token 
-            for indice in data['indexes']:
+            for indice in document_filenames:
                 if(indice['index'] == token):
                     #print("entre")
                     aux = indice['similarity']
@@ -36,17 +36,9 @@ complete_json =  '/Users/Qasim/Desktop/Dev/WebDev/Projects /Js Python/Python-Sea
 with open(complete_json, encoding='utf8') as corpus:
             document_filenames = json.load(corpus)    
 
-
-
-dataset = {}
-dataset['indexes'] = []
-
 def createThesaurus():
-
     dataset = {}
     dataset['indexes'] = []
-
-
     for id in document_filenames:
         docIDs1 = set()
         documents1 = id['description']
@@ -64,20 +56,20 @@ def createThesaurus():
 
     
     
-    for i_indice in data['indexes']:
+    for id in document_filenames:
         docIDs1 = set()
-        documents1 = i_indice['documents']
-        word1= i_indice['index']
+        documents1 = id['description']
+        word1= id['index']
         for doc1 in documents1:
             docIDs1.add(doc1[0])
         #only 
         if(len(docIDs1) > 3):
             similarities = []
-            for k_indice in data['indexes']:
+            for k_indice in document_filenames:
                 docIDs2 = set()
                 word2 = k_indice['index']
                 if(word1 != word2):
-                    documents2 = k_indice['documents']
+                    documents2 = k_indice['description']
                     for doc2 in documents2:
                         docIDs2.add(doc2[0])
                     if(len(docIDs2) > 3):

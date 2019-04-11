@@ -8,14 +8,20 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer  as ps
 from timeit import default_timer as timer
 
+
+
 #dictionary and term dictionary
 dictionary = set()
+#postings = json.load(open('postings.json')) 
 postings = defaultdict(dict)
 #length doc_id with "euclidean length of the corresponding vector"
+#length = json.load(open('length.json')) 
 length = defaultdict(float)
 #document frequency:-terms, with
 #corresponding values equal to the number of documents
-document_frequency = defaultdict(int)
+#document_frequency = json.load(open('doc_freq.json')) 
+document_frequency  = defaultdict(int)
+
 
 
 #Loading or corpus
@@ -42,7 +48,6 @@ def main():
     end = timer()
     end1= timer()
     print(f'------Complete---Took {end1-start1}-----------------')
-
     while True:
         do_search()
 
@@ -60,9 +65,7 @@ def initialize_terms_and_postings():
         dictionary = dictionary.union(unique_terms)
         for term in unique_terms:
             postings[term][id['doc_id']] = terms.count(term)
-            #print(postings[term][id['doc_id']])
-    #print(postings)
-    #return postings
+
 
  #For each document how many time the "term" appears send it to document_frequency[term]  
 def initialize_document_frequencies():
@@ -74,17 +77,24 @@ def initialize_document_frequencies():
 def initialize_lengths():
     """Computes the length for each document."""
     global length
+    #with open('length.json', encoding='utf8') as length_w:
+        #length = json.load(length_w)
+    
     count=0
     for id in document_filenames:
-        count=count+1
-        k = id['doc_id']
-        print(f'working on document {count} ->>>>>>>> {k}')
+        #count=count+1
+        #k = id['doc_id']
+        #print(f'working on document {count} ->>>>>>>> {k}')
         l = 0
         for term in dictionary:
             l += imp(term,id['doc_id'])**2
         length[id['doc_id']] = math.sqrt(l)
-    with open('doc_length.json', 'w') as outfile:
-        json.dump(length, outfile)
+    with open('length.json', 'w') as outfile:
+        json.dump(postings, outfile)
+
+#______________RUN THE ABOVE TO BUILD LENGTH DICT__________________
+  
+    
 #Importance of term in document! if not give me 0
 def imp(term,id):
     """Returns the importance of term in document id.  If the term
@@ -106,7 +116,6 @@ def do_search():
         sys.exit()
     # find document ids containing all query terms.  Works by
     # intersecting the posting lists for all query terms.
-    print("\n\n\n",[set(postings[term].keys()) for term in query],"\n\n\n")
     relevant_document_ids = intersection([set(postings[term].keys()) for term in query])
     list(relevant_document_ids)
     if not relevant_document_ids:

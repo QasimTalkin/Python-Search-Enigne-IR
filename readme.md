@@ -30,10 +30,15 @@ from Model/CorpusAccess/corpusAccess.py
 Model/vsm_bol_search/search.py
 
 This will return us search results with their score based on weight, tf, tf-idf and boolean model if selected by default set to AND
->python search.py
+>python boolsearch.py
+
+By default set to AND also gives out counter score. 
+
 
 >query('China India')
 ![Screenshot](search_results_china_india.png)
+
+>python vsmSearch.py
 
 ## learn
 #### we used a templating language. Jinja2 comes with Flask, so there is no extra setup needed.
