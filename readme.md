@@ -12,6 +12,7 @@ here "search_ve" is my virtual environment.
 ### Building corpus. 
 from Model/Pre_processing Run 
 >python build_corpus.py 
+![Screenshot](corpus_pp.png)
 
 
 ### Dictionary Building 
@@ -25,7 +26,7 @@ from Model/InvertedIndex/build_ii.py run
 from Model/CorpusAccess/corpusAccess.py 
 >python corpuAccess.py
 
-###VSM and Bool search
+### VSM and Bool search
 Model/vsm_bol_search/search.py
 
 This will return us search results with their score based on weight, tf, tf-idf and boolean model if selected by default set to AND
@@ -37,3 +38,6 @@ This will return us search results with their score based on weight, tf, tf-idf 
 ## learn
 #### we used a templating language. Jinja2 comes with Flask, so there is no extra setup needed.
 * A templating language works in conjunction with a web server. It takes the output of your Python scripts (the back-end code), and makes it easy to output to the user using HTML (the front-end). It’s important to note that templates should not be used for logic! Keep the logic in Python, and use templates only for displaying the data. It gets very messy if you start trying to get complex with the template.
+
+
+

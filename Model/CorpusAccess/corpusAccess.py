@@ -9,10 +9,11 @@ class CorpusAccess():
             self.corpus = json.load(corpus)
 
     def access(self, doc_ids):
+        print(doc_ids)
         return [document for document in self.corpus if document['doc_id'] == doc_ids]
 
 #Testing 
 #example = CorpusAccess()
 #output = example.access("CSI-116")
-#print(output)
+#print("FROM corpus Access", output)
 

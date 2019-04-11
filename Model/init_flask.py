@@ -2,7 +2,7 @@ from flask import Flask, flash, url_for, request, render_template, request, redi
 import random, json, sys
 sys.path.append("..")
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
-from vsm_bol_search import search
+from vsm_bol_search import booleanSearch, vsmSearch
 from CorpusAccess import corpusAccess
 
 
@@ -22,7 +22,7 @@ def index():
 	if request.method == 'POST':
 		SearchQuery=request.form['SearchQuery']
 		print (SearchQuery)
-		search_results = search.Search()
+		search_results = booleanSearch.Search()
 		search_results = search_results.query(SearchQuery)
 		corpus_access = corpusAccess.CorpusAccess()
 		final_results = []
@@ -61,7 +61,8 @@ def worker():
 @app.route('/result/<doc_id>')
 def get_result(doc_id):
 	corpus_access = corpusAccess.CorpusAccess()
-	return render_template('result.html', result=corpus_access.access([doc_id])[0])
+	print("from init flask ->>>> ", doc_id)
+	return render_template('result.html', result=corpus_access.access([doc_id]))
 
 
 if __name__ == "__main__":
