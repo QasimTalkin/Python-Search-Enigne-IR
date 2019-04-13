@@ -128,9 +128,9 @@ def search(index, query, operator='AND', fields=None):
 
 
 #sample Queries
-s = Search()
-result = s.query('China India')
-print(f'Results {result}\n Results Length {len(result)}')
+#s = Search()
+#result = s.query('China India')
+#print(f'Results {result}\n Results Length {len(result)}')
 #query(index, 'China')
 #query(index, 'Python')
 #query(index, 'Python', fields=['title'])

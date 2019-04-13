@@ -21,33 +21,9 @@ length = defaultdict(float)
 #corresponding values equal to the number of documents
 #document_frequency = json.load(open('doc_freq.json')) 
 document_frequency  = defaultdict(int)
-with open('length.json', encoding='utf8') as length_w:
-    length = json.load(length_w)
-with open('posting_vm.json', encoding='utf8') as posting_w:
-    postings = json.load(posting_w)
 
-
-
-class Search():
-    def __init__(self):
-        print("--------------------Term Frequency----------------")
-        start1=timer()
-        start = timer()
-        initialize_terms_and_postings()
-        end = timer()
-        print(f'----------------Took {end-start}-----------------')
-        print("---------------------Document Frequency-----------------")
-        start = timer()
-        initialize_document_frequencies()
-        end = timer()
-        print(f'----------------Took {end-start}-----------------')
-        end1= timer()
-        print(f'------Complete---Took {end1-start1}-----------------')
-        #initialize_lengths()
-    def query(self, query):
-        results = search(query)
-        return results
-        
+# with open('length.json', encoding='utf8') as length:
+#             document_filenames = json.load(corpus)  
 
 
 #Loading or corpus
@@ -56,7 +32,6 @@ with open(complete_json, encoding='utf8') as corpus:
             document_filenames = json.load(corpus)  
 
 N = len(document_filenames)
-'''
 def main():
     print("--------------------Term Frequency----------------")
     start1=timer()
@@ -71,33 +46,29 @@ def main():
     print(f'----------------Took {end-start}-----------------')
     print("--------------------Length Calc-------------------")
     start = timer()
-    initialize_lengths()
+    #initialize_lengths()
     end = timer()
     end1= timer()
     print(f'------Complete---Took {end1-start1}-----------------')
     while True:
         do_search()
-'''
+
 
 
 #for each doc in corpus we split ti into terms and addd new twerms to global dic
 #and add and freq ito posting list. 
 def initialize_terms_and_postings():
-    global dictionary
+    global dictionary, postings
     for id in document_filenames:
         terms = wt(id['description'])
         terms = terms + (wt(id['title']))
+        #terms = ps(terms)
         unique_terms = set(terms)
         dictionary = dictionary.union(unique_terms)
+        for term in unique_terms:
+            postings[term][id['doc_id']] = terms.count(term)
 
-    #     for term in unique_terms:
-    #         postings[term][id['doc_id']] = terms.count(term)
-    # dictionary = str(dictionary)
-    # with open('dictionary.txt', 'w') as outfile:
-    #     outfile.write(dictionary)
-    # dictionary = set(dictionary)
 
-    
  #For each document how many time the "term" appears send it to document_frequency[term]  
 def initialize_document_frequencies():
     for term in dictionary:
@@ -121,7 +92,7 @@ def initialize_lengths():
             l += imp(term,id['doc_id'])**2
         length[id['doc_id']] = math.sqrt(l)
     with open('length.json', 'w') as outfile:
-        json.dump(postings, outfile)
+        json.dump(length, outfile)
 
 #______________RUN THE ABOVE TO BUILD LENGTH DICT__________________
   
@@ -140,15 +111,15 @@ def inverse_document_frequency(term):
     else:
         return 0.0
 #Return documents with decreasing cosine similarities 
-def search(query):
-    query = wt(query)
+def do_search():
+
+    query = wt(input("Search query >> "))
     if query == []:
         sys.exit()
     # find document ids containing all query terms.  Works by
     # intersecting the posting lists for all query terms.
     relevant_document_ids = intersection([set(postings[term].keys()) for term in query])
     list(relevant_document_ids)
-    docID_List = []
     if not relevant_document_ids:
         print ("No documents matched all query terms.")
     else:
@@ -156,14 +127,9 @@ def search(query):
                          for id in relevant_document_ids],
                         key=lambda x: x[1],
                         reverse=True)
-        # print ("Score: filename")
-        for (id, score) in scores:
-           scorelist = f'{id} : {score}'
-        #    print(scorelist)
-           docID_List.append(scorelist)
-    return docID_List
-    
-    
+        print ("Score: filename")
+        for (id,score) in scores:
+           print (str(score)+": "+id) 
 #Intersection of two given sets is the largest set which contains all the elements that are common to both the sets.
 def intersection(sets):
     """Returns the intersection of all sets in the list sets. Requires
@@ -183,11 +149,11 @@ def similarity(query,id):
     return similarity
 
 
-s = Search()
-result = s.query('Introduction to')
-print(result)
 
 
+
+if __name__ == "__main__":
+        main()
 '''
 if __name__ == "__main__":
         main()
