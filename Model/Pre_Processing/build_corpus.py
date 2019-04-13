@@ -6,8 +6,15 @@ from timeit import default_timer as timer
 
 def tokenize_sentence(text):
     return sent_tokenize(text)
+
+topics_json = '/Users/Qasim/Desktop/Dev/WebDev/Projects /Js Python/Python-Search-Enigne-IR/Model/Json_data/raw_reut_topics.json'
+with open(topics_json) as corpus:
+    reut_old_corp = json.load(corpus)
+
+
 #----------------reuters-----------------#
 class ReutersPP(cpp):
+
     def __init__(self):
         super().__init__()
         self.rDataSet = os.path.join(os.getcwd(), "dataset")
@@ -23,6 +30,7 @@ class ReutersPP(cpp):
     def corpus_pp(self):
         print(f"-----------Reuters PP----------")
         start = timer()
+        count = -1
         for files in os.listdir(self.rDataSet):
             with open(os.path.join(self.rDataSet, files), 'rb') as reuterdoc:
                 data = reuterdoc.read()
@@ -32,15 +40,23 @@ class ReutersPP(cpp):
 #Enumerate allows us to loop over something and have an automatic counter.
 #docID -> article number starting with 1
 #Find title body topic create snippet
-                for docID, article in enumerate(articles, 1):
-#Title 
+                for docID, article in enumerate(articles, 0):
+
+                    count = count+1
+                    if count == 19040:
+                        count = 899
+#Title              
                     title = article.find('title').text if article.find('title') is not None else ""
 #Description 
                     description = article.find('body').text if article.find('body') is not None  else ""
 #Create Snippet
-                    snippet = tokenize_sentence(description.strip())[0] if description is not None and description != "" else ''
-#Topic
-                    topic = article.find('topic').text if article.find('topic') is not None  else ""
+                    snippet = tokenize_sentence(description.strip())[0] if description is not None and description != "" else ""
+#Topic              
+                    if (title=="") and (description == "") and (snippet == ""):
+                        topic = article.find('topic').text if article.find('topic') is not None  else "Empty Document"
+                        count = count - 1
+                    else:    
+                        topic = article.find('topic').text if article.find('topic') is not None  else reut_old_corp[count]['topics']
 #Document
                     document = self.Document(f'{files}-#{docID}', title, description.strip() if description is not None else '', snippet, topic) 
                     self.document_list.append(document)
@@ -112,4 +128,7 @@ def setup_reuters_corpus():
     reutersPrep.corpus_pp()
     print("------------Done-------------")
 
+
+#print(reut_old_corp[0]['topics'])
+#print(reut_old_corp[889]['topics'])
 setup_reuters_corpus()

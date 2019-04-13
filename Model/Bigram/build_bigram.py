@@ -13,7 +13,7 @@ def lowercase(tokens):
     for t in tokens:
         yield t.lower()
 def stopwords_removal(obj):
-    e_f_stop_words = set (stopwords.word('enlgish')) | set(stopwords.words('french'))
+    e_f_stop_words = set (stopwords.word('english')) | set(stopwords.words('french'))
     return set([words.lower() for words in obj if not words in e_f_stop_words])
 def normalize(obj):
     return {words.translate(str.maketrans('', '', string.punctuation)).lower() for words in obj}
