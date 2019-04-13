@@ -1,0 +1,44 @@
+[
+    {
+         "doc_id": "CSI-1",
+         "title": "CSI 1306 Computing Concepts for Business ",
+         "description": "Introduction to computer-based problem solving from the perspective of the business world. Design of algorithms for solving business problems. Basics of computer programming in a modern programming language. Solving business problems using application packages including spreadsheets and databases. Basics of web design. Collaborative tools. Using open source software.",
+         "snippet": "Introduction to computer-based problem solving from the perspective of the business world.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI-2",
+         "title": "CSI 1308 Introduction to Computing Concepts ",
+         "description": "Introduction to computer based problem solving for scientific applications.  Design of algorithms and algorithms descriptions.  4th generation languages. Software packages.  Structured program development.  Modular and object-oriented programming.  Program testing.",
+         "snippet": "Introduction to computer based problem solving for scientific applications.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI-3",
+         "title": "CSI 1390 Introduction to Computers ",
+         "description": "Computing and computers. Problem solving and algorithm development. Introduction to programming. Use of application, communication, and database software.",
+         "snippet": "Computing and computers.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI-4",
+         "title": "CSI 1706 Éléments de programmation pour la gestion ",
+         "description": "Introduction aux méthodes de résolution informatisées dans le cadre du monde des affaires. Conception d'algorithmes pour résoudre des problèmes d'affaires. Éléments de base de programmation dans un langage de programmation moderne. Résolution de problèmes d'affaires à l'aide d'applications telles que les tableurs et les bases de données. Éléments de base de la conception pour le web. Outils de collaboration. Utilisation de logiciel libre.",
+         "snippet": "Introduction aux méthodes de résolution informatisées dans le cadre du monde des affaires.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI-5",
+         "title": "CSI 1708 Introduction aux concepts de l'informatique ",
+         "description": "Introduction aux méthodes de résolution de problèmes par ordinateur dans le cadre des applications scientifiques.  Conception et description des algorithmes.  Langages de 4e génération.  Logiciels. Développement de programmes modulaires, structurés et orientés objet. Tests de programmes.",
+         "snippet": "Introduction aux méthodes de résolution de problèmes par ordinateur dans le cadre des applications scientifiques.",
+         "topic": "Uottawa Courses"
+    },
+    {
+         "doc_id": "CSI-6",
+         "title": "CSI 1790 Introduction aux ordinateurs ",
+         "description": "Le traitement de l'information et les ordinateurs. La résolution de problèmes. Développement des algorithmes. Introduction aux concepts de la programmation. Utilisation de logiciels d'application, de communication et de bases de données.",
+         "snippet": "Le traitement de l'information et les ordinateurs.",
+         "topic": "Uottawa Courses"
+    }
+]
